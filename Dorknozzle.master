@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Dorknozzle.master.cs" Inherits="Dorknozzle" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Header -->
+        <div class="Header">
+            <asp:Image ID="Image1" runat="server" Height="174px" ImageUrl="~/Images/header.gif" Width="450px" AlternateText="The Official Dorknozzle Company Intranet" />
+            
+        </div>
+        <!-- Menu -->
+         <div class="Menu">
+            <asp:SiteMapDataSource ID="dorknozzleSiteMap" runat="server" ShowStartingNode="False" />
+            <asp:Menu ID="dorknozzleMenu" runat="server" DataSourceID="dorknozzleSiteMap">
+                <StaticItemTemplate>
+                    <img src="Images/book_closed.gif" alt="+"
+                        width="16" height="16" style="border-width: 0;" />
+                    <%# Eval("Text") %>
+                </StaticItemTemplate>
+
+            </asp:Menu>
+         </div>
+        <!-- Content -->
+        <div class="Content">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
